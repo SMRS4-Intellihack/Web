@@ -1,0 +1,148 @@
+<div class="container">
+  <h2>Upload video footage here</h2>
+  <!-- <button mat-flat-button class="btn-upload">
+    <div class="btn-text">Upload</div>
+  </button> -->
+
+  <div *ngIf="uploadingEnabled">
+    <div class="upload-btn-wrapper">
+      <button class="btn">Upload a file</button>
+      <input type="file" [name]="file" (click)="Upload()" />
+    </div>
+  </div>
+
+  <div *ngIf="isUploading">
+    <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+  </div>
+
+  <div *ngIf="isProcessing">
+    <div class="vertical-spacer-lg"></div>
+    <div class="loader-container">
+      <img class="loader" src="assets/svg/loader.svg" />
+    </div>
+  </div>
+
+  <div *ngIf="jobCompletes">
+    <h4>Analytics</h4>
+    <div>
+      Count:&nbsp; <span class="analytics"> {{ count }}</span>
+    </div>
+    <div>
+      Average speed:&nbsp; <span class="analytics"> {{ speed }}</span>
+    </div>
+    <div>Data</div>
+    <div>Another data</div>
+
+    <h4>Charts</h4>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h4>Overview</h4>
+        </mat-expansion-panel-header>
+        <div class="chart-wrapper">
+          <canvas
+            baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+          >
+          </canvas>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="vertical-spacer-min"></div>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <h4>Hourly data</h4>
+        </mat-expansion-panel-header>
+        <div class="chart-wrapper chart-container">
+          <canvas
+            baseChart
+            [datasets]="carsChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="carsChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+
+        <div class="vertical-spacer"></div>
+
+        <div class="chart-wrapper chart-container">
+          <canvas
+            baseChart
+            [datasets]="vansChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="vansChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+
+        <div class="vertical-spacer"></div>
+
+        <div class="chart-wrapper chart-container">
+          <canvas
+            baseChart
+            [datasets]="truckChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="trucksChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+
+        <div class="vertical-spacer"></div>
+
+        <div class="chart-wrapper chart-container">
+          <canvas
+            baseChart
+            [datasets]="ambulanceChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="ambulanceChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+
+        <div class="vertical-spacer"></div>
+
+        <div class="chart-wrapper chart-container">
+          <canvas
+            baseChart
+            [datasets]="busChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="busesChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="vertical-spacer"></div>
+
+    <!-- <div class="chart-container-row"> -->
+
+    <!-- </div> -->
+  </div>
+</div>

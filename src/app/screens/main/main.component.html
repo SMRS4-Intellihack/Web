@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>
+      Awesome App
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened fixedInViewport>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        [routerLink]="['/console/home']"
+        routerLinkActive="selected"
+      >
+        <mat-icon mat-list-icon>home</mat-icon>
+        <h4 mat-line>Classification</h4>
+      </a>
+      <a
+        mat-list-item
+        [routerLink]="['/console/events']"
+        routerLinkActive="selected"
+      >
+        <mat-icon mat-list-icon>event</mat-icon>
+        <h4 mat-line>Thing</h4>
+      </a>
+      <a
+        mat-list-item
+        [routerLink]="['/console/orgs']"
+        routerLinkActive="selected"
+      >
+        <mat-icon mat-list-icon>business</mat-icon>
+        <h4 mat-line>Another thing</h4>
+      </a>
+    </mat-nav-list></mat-sidenav
+  >
+  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>
